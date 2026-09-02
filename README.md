@@ -51,6 +51,32 @@ Com base na auditoria inicial, as seguintes etapas de sanitização foram aplica
 * **Ajuste de Unidades:** Conversão da coluna `population(k)` para a população total (multiplicação por 1.000) para evitar distorções no cálculo *per capita*.
 * **Tratamento de Nulos:** Tratamento direcionado nas métricas de óbitos e casos ativos/recuperados para evitar divergências em taxas calculadas.
 
+## 📐 Metodologia
+
+O projeto foi conduzido seguindo uma adaptação da metodologia **CRISP-DM** para análise exploratória de dados epidemiológicos:
+
+1. **Entendimento do Problema:** Definição das perguntas centrais da análise e identificação das métricas necessárias para respondê-las.
+2. **Coleta e Auditoria:** Carga do dataset proveniente do Kaggle e verificação da estrutura dos dados, tipos, valores ausentes, duplicatas e regras de consistência lógica.
+3. **Tratamento dos Dados (Saneamento):** Investigação e tratamento de inconsistências, exclusão de registros que não representavam países ou que apresentavam informações incompatíveis com os objetivos da análise, além do tratamento dos valores ausentes.
+4. **Validação Final:** Verificação da consistência e integridade do dataset após as etapas de limpeza, resultando na criação do `covid19_clean.csv`.
+5. **Análise Descritiva Inicial:** Avaliação do comportamento estatístico das principais variáveis e identificação de padrões relevantes para orientar a análise dos objetivos.
+6. **Análise Exploratória (EDA) & Visualização:** Etapa a ser desenvolvida para o cálculo dos indicadores, comparação dos resultados e construção de visualizações que respondam às perguntas centrais.
+7. **Consolidação dos Resultados:** Documentação e síntese dos principais insights no README.
+## 📝 Etapas do Projeto
+
+5. **Análise Descritiva Inicial:** A análise descritiva inicial revelou uma grande heterogeneidade entre os países analisados, principalmente em relação à população, ao número de casos e às mortes registradas:
+
+* **Assimetria das Variáveis:** As colunas `cases.total` e `deaths.total` apresentaram distribuições fortemente assimétricas, com médias significativamente superiores às medianas. Esse comportamento evidencia a influência de países com valores extremamente elevados.
+
+* **Necessidade de Comparações Proporcionais:** A grande variação populacional observada no dataset reforça que comparações entre países não devem considerar apenas os números absolutos. Por esse motivo, será calculada uma métrica que relacione o número de casos à população de cada país.
+
+* **Distribuição Geográfica Inicial:** Na agregação preliminar por continente, a **Europa** apresentou o maior volume absoluto de casos, seguida pela **Ásia** e pela **América do Norte**.
+
+Essas constatações orientaram as etapas de preparação dos dados e a definição das métricas que serão utilizadas para responder às três perguntas centrais da análise:
+
+- 🌍 **Volume Geral:** Qual continente teve mais casos?
+- 👥 **Comparação Proporcional:** Qual país teve mais casos proporcionalmente à população?
+- ⚠️ **Mortalidade:** Qual país apresentou a maior taxa de mortalidade?
 ## 🛠️ Tecnologias e Ferramentas
 
 * **Linguagem:** Python 3.12.4
