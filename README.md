@@ -91,6 +91,39 @@ Inicialmente, foi realizada uma auditoria da estrutura e qualidade dos dados, in
 
 Essa auditoria permitiu identificar problemas de qualidade que precisavam ser investigados antes da análise dos indicadores.
 
+### 3. 🧹 Tratamento dos Dados (Saneamento)
+
+A partir dos problemas identificados na auditoria, foram realizadas investigações individuais para determinar a origem das inconsistências e definir o tratamento adequado para cada caso.
+
+Entre as principais ações realizadas:
+
+- Remoção do registro agregado `All`, que não representava um país individual;
+- Rnvestigação e remoção de registros com localização geográfica inconsistente;
+- Identificação e remoção do registro `Diamond-Princess`, por representar um navio e não um país;
+- Investigação de registros com valores ausentes nas principais variáveis;
+- Análise dos valores ausentes em `deaths.total`, `population(k)`, `test.total (k)`, `cases.active`, `cases.critical` e `cases.recovered`;
+- Investigação de valores considerados incompatíveis com a realidade, como a população registrada para `Vatican-City`;
+- Tratamento de valores ausentes somente quando havia justificativa baseada nos dados e no contexto da análise, mantendo como ausentes aqueles que não poderiam ser determinados com segurança;
+- Geração do dataset tratado `covid19_clean.csv`, utilizado como base para as etapas seguintes.
+
+As decisões de exclusão e transformação foram documentadas durante a investigação no notebook, buscando preservar a integridade dos dados sem introduzir valores artificialmente.
+
+### 4. ✅ Validação Final
+
+Após o tratamento dos dados, o dataset `covid19_clean.csv` foi carregado novamente para uma validação final.
+
+Foram realizadas verificações para confirmar:
+
+- A estrutura e as dimensões do dataset;
+- Os nomes e tipos das variáveis;
+- A quantidade e distribuição dos valores ausentes remanescentes;
+- A ausência de registros duplicados;
+- A consistência entre país e continente;
+- A existência de valores negativos ou incompatíveis nas variáveis numéricas;
+- A integridade dos principais campos utilizados na análise.
+
+A validação confirmou que o dataset tratado estava adequado para iniciar a análise descritiva e responder às perguntas definidas no projeto.
+
 ### 3. 📝 Análise Descritiva Inicial 
 A análise descritiva inicial revelou uma grande heterogeneidade entre os países analisados, principalmente em relação à população, ao número de casos e às mortes registradas:
 
