@@ -62,9 +62,37 @@ O projeto foi conduzido seguindo uma adaptação da metodologia **CRISP-DM** par
 5. **Análise Descritiva Inicial:** Avaliação do comportamento estatístico das principais variáveis e identificação de padrões relevantes para orientar a análise dos objetivos.
 6. **Análise Exploratória (EDA) & Visualização:** Etapa a ser desenvolvida para o cálculo dos indicadores, comparação dos resultados e construção de visualizações que respondam às perguntas centrais.
 7. **Consolidação dos Resultados:** Documentação e síntese dos principais insights no README.
-## 📝 Etapas do Projeto
+## 📋 Etapas do Projeto
+### 1. 🎯 Entendimento do Problema
 
-5. **Análise Descritiva Inicial:** A análise descritiva inicial revelou uma grande heterogeneidade entre os países analisados, principalmente em relação à população, ao número de casos e às mortes registradas:
+O projeto teve início com a definição de três perguntas centrais para orientar a análise dos dados da COVID-19:
+
+- 🌍 **Volume Geral:** Qual continente teve mais casos?
+- 👥 **Comparação Proporcional:** Qual país teve mais casos proporcionalmente à população?
+- ⚠️ **Mortalidade:** Qual país apresentou a maior taxa de mortalidade?
+
+A partir dessas perguntas, foram identificadas as principais variáveis necessárias para a análise, como número total de casos, mortes, população e continente. Também foi definido que a comparação entre países deveria considerar tanto valores absolutos quanto métricas proporcionais à população.
+
+### 2. 🔎 Coleta e Auditoria
+
+Foi utilizado um dataset de estatísticas da COVID-19 disponibilizado pelo **Kaggle**, contendo informações sobre casos, mortes, população, testes e localização geográfica.
+
+Inicialmente, foi realizada uma auditoria da estrutura e qualidade dos dados, incluindo:
+
+- Identificação das dimensões do dataset;
+- Verificação dos nomes e tipos das variáveis;
+- Análise da distribuição dos registros por país e continente;
+- Identificação de valores ausentes;
+- Investigação de possíveis registros duplicados ou inconsistentes;
+- Verificação da coerência entre país e continente;
+- Identificação de registros que não representavam países, como `Diamond-Princess`;
+- Análise de registros agregados, como `All`;
+- Investigação de valores potencialmente incorretos ou incompatíveis com a realidade.
+
+Essa auditoria permitiu identificar problemas de qualidade que precisavam ser investigados antes da análise dos indicadores.
+
+### 3. 📝 Análise Descritiva Inicial 
+A análise descritiva inicial revelou uma grande heterogeneidade entre os países analisados, principalmente em relação à população, ao número de casos e às mortes registradas:
 
 * **Assimetria das Variáveis:** As colunas `cases.total` e `deaths.total` apresentaram distribuições fortemente assimétricas, com médias significativamente superiores às medianas. Esse comportamento evidencia a influência de países com valores extremamente elevados.
 
@@ -72,11 +100,7 @@ O projeto foi conduzido seguindo uma adaptação da metodologia **CRISP-DM** par
 
 * **Distribuição Geográfica Inicial:** Na agregação preliminar por continente, a **Europa** apresentou o maior volume absoluto de casos, seguida pela **Ásia** e pela **América do Norte**.
 
-Essas constatações orientaram as etapas de preparação dos dados e a definição das métricas que serão utilizadas para responder às três perguntas centrais da análise:
-
-- 🌍 **Volume Geral:** Qual continente teve mais casos?
-- 👥 **Comparação Proporcional:** Qual país teve mais casos proporcionalmente à população?
-- ⚠️ **Mortalidade:** Qual país apresentou a maior taxa de mortalidade?
+Essas constatações orientaram as etapas de preparação dos dados e a definição das métricas que serão utilizadas para responder às três perguntas centrais da análise.
 ## 🛠️ Tecnologias e Ferramentas
 
 * **Linguagem:** Python 3.12.4
